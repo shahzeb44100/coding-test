@@ -26,33 +26,29 @@ export default function QualityProductsSlider() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const handleDragEnd = ( info) => {
+    const handleDragEnd = (event , info) => {
+        console.error(event);
         const threshold = 100; // Increased threshold for better detection
-        console.log('Drag ended:', info.offset.x, 'Current index:', currentIndex);
         
         if (info.offset.x > threshold && currentIndex > 0) {
             // Swipe right - go to previous
-            console.log('Going to previous');
             controls.start({ x: 450, transition: { type: "spring", stiffness: 120, damping: 20 } }).then(() => {
                 setCurrentIndex(currentIndex - 1);
                 setX(0);
             });
         } else if (info.offset.x < -threshold && currentIndex < products.length - 1) {
             // Swipe left - go to next
-            console.log('Going to next');
             controls.start({ x: -450, transition: { type: "spring", stiffness: 120, damping: 20 } }).then(() => {
                 setCurrentIndex(currentIndex + 1);
                 setX(0);
             });
         } else {
             // Return to center
-            console.log('Returning to center');
             controls.start({ x: 0, transition: { type: "spring", stiffness: 120, damping: 20 } });
         }
     };
 
     const handleArrow = (dir) => {
-        console.log('Arrow clicked:', dir, 'Current index:', currentIndex);
         
         if (dir === "left" && currentIndex > 0) {
             controls.start({ x: 450, transition: { type: "spring", stiffness: 120, damping: 20 } }).then(() => {
@@ -133,7 +129,6 @@ export default function QualityProductsSlider() {
                     dragElastic={0.2}
                     onDragStart={() => {
                         setShowDragHint(false);
-                        console.log('Drag started');
                     }}
                     onDragEnd={handleDragEnd}
                     animate={controls}
