@@ -26,7 +26,7 @@ export default function QualityProductsSlider() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const handleDragEnd = (event, info) => {
+    const handleDragEnd = ( info) => {
         const threshold = 100; // Increased threshold for better detection
         console.log('Drag ended:', info.offset.x, 'Current index:', currentIndex);
         

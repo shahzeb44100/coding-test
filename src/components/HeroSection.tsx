@@ -8,8 +8,8 @@ const SLIDE_DURATION = 4000 // 2 seconds
 export default function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [progress, setProgress] = useState(0)
-  const intervalRef = useRef<NodeJS.Timeout | null>(null)
-  const progressRef = useRef<NodeJS.Timeout | null>(null)
+  const intervalRef = useRef<number | null>(null)
+  const progressRef = useRef<number | null>(null)
   const [prevImageIndex, setPrevImageIndex] = useState(currentImageIndex);
 
   useEffect(() => {
