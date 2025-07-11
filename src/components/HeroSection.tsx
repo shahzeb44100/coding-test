@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { bannerImages } from "../constant/constant"
 import Navbar from "./Navbar"
+import WavyText from "./WavyText"
 
 const SLIDE_DURATION = 4000 // 2 seconds
 
@@ -125,20 +126,20 @@ export default function HeroSection() {
             >
               Welcome To TerrTwenty Farms
             </motion.p>
-            <motion.h1
+            <WavyText
               key={`title-${currentImageIndex}`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-64px text-46px font-normal custom-pale-blue"
+              text={`${currentImage.title} ${currentImage.subtitle}`}
+              replay={true}
+              delay={0.1}
+              duration={0.05}
+              className="text-64px text-46px font-normal custom-pale-blue break-words whitespace-normal"
               style={{
-                lineHeight: "1"
+                lineHeight: "1",
+                flexWrap: "wrap", // This is important for flex children to wrap
+                width: "100%",    // Optional: ensures it uses available space
+                maxWidth: 700,    // Optional: for a nice readable line length
               }}
-            >
-              {currentImage.title}
-              <br />
-              {currentImage.subtitle}
-            </motion.h1>
+            />
           </div>
         </div>
 
