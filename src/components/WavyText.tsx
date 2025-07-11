@@ -29,27 +29,6 @@ const WavyText: FC<Props> = ({
     })
   };
 
-  const child = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring" as const,
-        damping: 12,
-        stiffness: 200
-      }
-    },
-    hidden: {
-      opacity: 0,
-      y: 20,
-      transition: {
-        type: "spring" as const,
-        damping: 12,
-        stiffness: 200
-      }
-    }
-  };
-
   return (
     <motion.h1
       style={{
