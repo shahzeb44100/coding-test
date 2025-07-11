@@ -1,5 +1,7 @@
+import type { SEOData, SEOConfigs } from "./types";
+
 // SEO Constants for TerrTwenty Farms
-export const SEO_DATA = {
+export const SEO_DATA: SEOData = {
   // Base site information
   siteName: 'TerrTwenty Farms',
   siteUrl: 'https://yourdomain.com/',
@@ -158,7 +160,7 @@ export const STRUCTURED_DATA = {
 };
 
 // SEO configurations for different pages
-export const PAGE_SEO_CONFIG = {
+export const PAGE_SEO_CONFIG: SEOConfigs = {
   homepage: {
     title: `${SEO_DATA.siteName} | Quality Products & Sustainable Farming`,
     description: SEO_DATA.siteDescription,

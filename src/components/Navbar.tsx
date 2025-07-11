@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { navigationItems } from "../constant";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -122,13 +123,7 @@ export default function Navbar() {
                                 },
                             }}
                         >
-                            {[
-                                { to: "/", label: "About" },
-                                { to: "/news", label: "News" },
-                                { to: "/services", label: "Services" },
-                                { to: "/team", label: "Our Team" },
-                                { to: "/enquiry", label: "Make Enquiry" },
-                            ].map((item) => (
+                            {navigationItems.map((item) => (
                                 <motion.li
                                     key={item.to}
                                     variants={{

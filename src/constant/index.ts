@@ -1,4 +1,4 @@
-// Re-export all constants from organized files
+// Export all constants
 export { bannerImages } from "./bannerData";
 export { products } from "./productData";
 export { newsData } from "./newsData";
@@ -7,5 +7,8 @@ export { teamData } from "./teamData";
 export { navigationItems } from "./navigationData";
 export { contactInfo, faqData } from "./contactData";
 
-// Export types
-export * from "./types";
+// Export SEO data
+export { SEO_DATA, STRUCTURED_DATA, PAGE_SEO_CONFIG } from "./seoData";
+
+// Export all types
+export * from "./types"; 

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Move, ArrowLeft, ArrowRight } from "lucide-react";
-import { products } from "../constant/constant";
+import { products } from "../../constant";
 
 export default function QualityProductsSlider() {
     const [currentIndex, setCurrentIndex] = useState(0);

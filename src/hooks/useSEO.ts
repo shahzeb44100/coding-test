@@ -1,17 +1,5 @@
 import { useEffect } from 'react';
-
-interface SEOProps {
-  title?: string;
-  description?: string;
-  keywords?: string;
-  image?: string;
-  url?: string;
-  type?: string;
-  canonical?: string;
-  noindex?: boolean;
-  nofollow?: boolean;
-  structuredData?: object;
-}
+import type { SEOProps } from '../constant';
 
 export const useSEO = ({
   title = 'TerrTwenty Farms | Quality Products & Sustainable Farming',
@@ -71,16 +59,16 @@ export const useSEO = ({
 
     // Canonical URL
     if (canonical) {
-      let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-      if (!link) {
-        link = document.createElement('link');
-        link.rel = 'canonical';
-        document.head.appendChild(link);
+      let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+      if (!canonicalLink) {
+        canonicalLink = document.createElement('link');
+        canonicalLink.rel = 'canonical';
+        document.head.appendChild(canonicalLink);
       }
-      link.href = canonical;
+      canonicalLink.href = canonical;
     }
 
-    // Structured Data
+    // Structured data
     if (structuredData) {
       let script = document.querySelector('script[type="application/ld+json"]') as HTMLScriptElement;
       if (!script) {
@@ -90,11 +78,5 @@ export const useSEO = ({
       }
       script.textContent = JSON.stringify(structuredData);
     }
-
-    // Cleanup function
-    return () => {
-      // Optionally clean up meta tags when component unmounts
-      // This is optional as new meta tags will override old ones
-    };
   }, [title, description, keywords, image, url, type, canonical, noindex, nofollow, structuredData]);
 }; 
